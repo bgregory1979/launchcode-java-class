@@ -1,32 +1,24 @@
 /**
  * Created by brian on 4/29/15.
  */
-public class Student {
-    private String firstName;
-    private String lastName;
+public class Student extends Person {
     private int studentId;
     private double credits;
     private double gpa;
 
 
     public Student(String firstName, String lastName, int studentId, double credits, double gpa) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+        super(firstName, lastName);
         this.studentId = studentId;
         this.credits = credits;
         this.gpa = gpa;
     }
 
     public Student(String firstName, String lastName, int studentId) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+        super(firstName, lastName);
         this.studentId = studentId;
         this.credits = 0.0;
         this.gpa = 0.0;
-    }
-
-    public String getName() {
-        return ("" + this.firstName + " " + this.lastName);
     }
 
     public int getStudentId() {
@@ -74,16 +66,9 @@ public class Student {
         return this.gpa;
     }
 
-    public double computeTuition() {
-
-        double cost = (20000.0 / 15.0);
-
-        return (this.getCredits() * cost);
-    }
-
     public Student createLegacy(Student a) {
 
-        int newID = (int)(Math.random() * 500000);
+        int newID = (int)(Math.random() * 900000 + 100000);
 
         double newCredits;
 
@@ -97,11 +82,6 @@ public class Student {
         double newGPA = (this.gpa + a.getGPA()) / 2;
 
         Student abc = new Student(this.getName(), a.getName(), newID, newCredits, newGPA);
-
-    /*  System.out.println(abc.getName());
-        System.out.println(abc.getStudentId());
-        System.out.println(abc.getCredits());
-        System.out.println(abc.getGPA());  */
 
         return abc;
     }
@@ -118,9 +98,8 @@ public class Student {
 
         xyz.submitGrade(3, 3);
 
-        xyz.computeTuition();
+        // xyz.computeTuition();
 
-        xyz.createLegacy(foo);
-
+        Student abc = xyz.createLegacy(foo);
     }
 }

@@ -6,7 +6,16 @@ public class Course {
     private double credits;
     private int seats;
     private Student[] studentRoster;
+    private Instructor teacher;
 
+
+    public Course(String courseName, double credits, int seats, Instructor teacher) {
+        this.courseName = courseName;
+        this.credits = credits;
+        this.seats = seats;
+        this.studentRoster = new Student[seats];
+        this.teacher = teacher;
+    }
 
     public Course(String courseName, double credits, int seats) {
         this.courseName = courseName;
@@ -27,13 +36,20 @@ public class Course {
         return this.seats;
     }
 
+    public void setInstructor(Instructor x) {
+        this.teacher = x;
+    }
+    public Instructor getInstructor() {
+        return this.teacher;
+    }
+
     public String toString() {
         // System.out.println("Course name: " + this.courseName + "\nCredits: " + this.credits + "\n");
         return (this.courseName + this.credits);
     }
 
     public boolean addStudent(Student a) {
-        for(int i = 0; i < this.seats; i++) {
+        for (int i = 0; i < this.seats; i++) {
             if (this.studentRoster[i] != null) {
                 if ((this.studentRoster[i].getName()).equals(a.getName())) {
                     System.out.println("This student has already been enrolled.");
@@ -41,7 +57,7 @@ public class Course {
                 }
             }
         }
-        for(int j = 0; j < this.seats; j++)
+        for (int j = 0; j < this.seats; j++)
             if (this.studentRoster[j] == null) {
                 this.studentRoster[j] = a;
                 System.out.println("The student has been enrolled.");
@@ -81,10 +97,12 @@ public class Course {
         // System.out.println(abc.seats);
         // System.out.println(a.studentRoster);
         abc.toString();
-        Student a = new Student("Joe", "Schmoe", 123456, 25, 3.5);
-        Student b = new Student("Al", "Coholic", 345678, 31, 3.3);
-        Student c = new Student("Jane", "Doe", 234567, 20, 2.5);
-        Student d = new Student("Ivana", "Tinkle", 456789, 28, 2.6);
+        Instructor xyz = new Instructor("Ben", "Dover", 3, 2);
+        Student a = new PTstudent("Joe", "Schmoe", 123456, 25, 3.5);
+        Student b = new FTstudent("Al", "Coholic", 345678, 31, 3.3);
+        Student c = new PTstudent("Jane", "Doe", 234567, 20, 2.5);
+        Student d = new FTstudent("Ivana", "Tinkle", 456789, 28, 2.6);
+        abc.setInstructor(xyz);
         abc.addStudent(a);
         abc.addStudent(b);
         abc.addStudent(c);
@@ -92,5 +110,4 @@ public class Course {
         abc.printRoster();
         abc.averageGPA();
     }
-
 }
