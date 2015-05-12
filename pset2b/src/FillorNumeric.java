@@ -31,7 +31,7 @@ public class FillorNumeric extends Question {
 */
     public static void main(String[] args) {
         String[] answerKey = {"Barack Obama"};
-        FillorNumeric a = new FillorNumeric("Who is the president?", answerKey );
+        FillorNumeric a = new FillorNumeric("Who is the president of the United States?", answerKey );
         a.runQuestion();
         answerKey[0] = "2015";
         FillorNumeric b = new FillorNumeric("What is the current year?", answerKey);

@@ -31,7 +31,7 @@ public class Quiz {
 
     public static void main(String[] args) {
         String[] ansA = {"Barack Obama"};
-        FillorNumeric a = new FillorNumeric("Who is the president?", ansA);
+        FillorNumeric a = new FillorNumeric("Who is the president of the United States?", ansA);
         String[] ansB = {"2015"};
         FillorNumeric b = new FillorNumeric("What is the current year?", ansB);
         String[] ansC = {"D"};

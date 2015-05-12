@@ -51,6 +51,5 @@ public class Question {
         String response = Scan.nextLine();
         System.out.println();
         return this.checkAnswer(response);
-
     }
 }

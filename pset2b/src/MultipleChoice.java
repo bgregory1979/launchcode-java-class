@@ -47,7 +47,7 @@ public class MultipleChoice extends Question {
 */
     public static void main(String[] args) {
         String[] answerKey = {"A", "C", "D"};
-        MultipleChoice a = new MultipleChoice("Which of the following persons were presidents?\nA: Barack Obama\nB: Steve Urkel\nC: Bill Clinton\nD: George Bush\n", answerKey);
+        MultipleChoice a = new MultipleChoice("Which of the following persons were US presidents?\nA: Barack Obama\nB: Steve Urkel\nC: Bill Clinton\nD: George Bush\n", answerKey);
         a.runQuestion();
         /*
         Scanner Scan = new Scanner(System.in);
