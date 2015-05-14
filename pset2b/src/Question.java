@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.Scanner;
+import java.io.FileNotFoundException;
 
 /**
  * Created by brian on 5/5/15.
@@ -44,11 +45,27 @@ public class Question {
         return (scoreCount / this.getAnswer().length);
     }
 
-    public double runQuestion() {
+    public String getUsersAnswer() throws NoInputException {
         Scanner Scan = new Scanner(System.in);
+        String response = Scan.nextLine();
+        if (response.equals("")) {
+            throw new NoInputException("User answer can't be empty string");
+        }
+        return response;
+    }
+
+    public double runQuestion() {
         System.out.println(this.getQuestion());
         System.out.print("Enter your answer(s): ");
-        String response = Scan.nextLine();
+        String response = null;
+        do {
+            try {
+                response = getUsersAnswer();
+            } catch (NoInputException a) {
+                System.out.println("Please enter an answer!");
+            }
+        }
+        while (response == null);
         System.out.println();
         return this.checkAnswer(response);
     }
