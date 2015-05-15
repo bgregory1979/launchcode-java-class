@@ -27,7 +27,7 @@ public class ArraySorter {
     }
 
     public static void main(String[] args) {
-        ArraySorter arraySorter1 = new ArraySorter(new MergeStrategy());
+        ArraySorter arraySorter1 = new ArraySorter(Sorts.insertionStrategy());
         int[] sampleArray1 = new int[10000];
         populate(sampleArray1);
         long startTime = System.nanoTime();

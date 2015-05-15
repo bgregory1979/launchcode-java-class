@@ -41,7 +41,7 @@ public class MergeStrategy implements SortStrategy {
 
     public static void main(String[] args) {
         int[] test = {7, 4, 1, 8, 0, 3, 5, 2};
-        MergeStrategy xyz = new MergeStrategy();
+        SortStrategy xyz = Sorts.mergeStrategy();
         for (int i = 0; i < test.length; i++) {
             System.out.println(test[i]);
         }
